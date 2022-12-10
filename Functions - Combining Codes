@@ -1,0 +1,48 @@
+//Combination of code by using functions
+
+const int buttonPin = 2;        //wired to any digital pin
+int buttonState;
+
+const int ledPin = 3;        //wired to any digital pin with PWM
+
+const int potPin = A5;        //wired to any analog pin
+int potState;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);        //set the mode of the pin being used
+
+  pinMode(ledPin, OUTPUT);    //set the mode of the pin being used
+
+}
+
+void loop() {
+  buttonFunction();
+  ledAnalog();
+  ledDigital();
+  potentiometer();
+}
+
+void buttonFunction() {
+  buttonState = digitalRead(buttonPin);
+  Serial.println(buttonState);
+}
+
+void ledAnalog() {
+  analogWrite(ledPin, 255);        //turns LED on max brightness
+  delay(500);                    //pause to see led
+  analogWrite(ledPin, 0);            //turns LED on min brightness
+  delay(500);                    //pause to see led
+}
+
+void ledDigital() {
+  digitalWrite(ledPin, HIGH);        //turns LED ON
+  delay(500);                    //pause to see led
+  digitalWrite(ledPin, LOW);        //turns LED ON
+  delay(500);                    //pause to see led
+}
+
+void potentiometer() {
+  potState = analogRead(potPin);
+  Serial.println(potState);
+}
