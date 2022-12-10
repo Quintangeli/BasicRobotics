@@ -1,0 +1,15 @@
+//Wire the positive pin(long/bent pin) to a digital pin
+//Wire the negative pin(short pin) to GND with a 220ohm resistor
+
+const int ledPin = 2;        //wired to any digital pin
+
+void setup(){
+pinMode(ledPin, OUTPUT);    //set the mode of the pin being used
+}
+
+void loop(){
+digitalWrite(ledPin, HIGH);        //turns LED ON
+delay(500);                    //pause to see led
+digitalWrite(ledPin, LOW);        //turns LED ON
+delay(500);                    //pause to see led
+}
