@@ -1,0 +1,15 @@
+//Wire the left pin to +5V
+//Wire the right pin to GND
+//Wire the center pin to an analog pin
+
+const int potPin = A5;        //wired to any analog pin
+int potState;
+
+void setup(){
+Serial.begin(9600);
+}
+
+void loop(){
+potState = analogRead(potPin);
+Serial.println(potState);
+}
