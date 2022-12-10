@@ -1,0 +1,14 @@
+//Wire the + pin to a digital pin
+//Wire the other pin to GND
+
+const int speakerPin = 3;
+
+void setup(){
+}
+
+void loop(){
+tone(speakerPin, 200);
+delay(500);
+noTone(speakerPin);
+delay(500);
+}
