@@ -1,0 +1,16 @@
+//Wire one side to +5V
+//Wire one side to GND with a 10kohm resistor
+//Connect a jumper wire from the GND side of the button to a digital pin
+
+const int buttonPin = 2;        //wired to any digital pin
+int buttonState;
+
+void setup(){
+Serial.begin(9600);
+pinMode(buttonPin, INPUT);        //set the mode of the pin being used
+}
+
+void loop(){
+buttonState = digitalRead(buttonPin);
+Serial.println(buttonState);
+}
