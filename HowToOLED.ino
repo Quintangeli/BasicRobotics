@@ -1,3 +1,5 @@
+//Wire SDA to A4, SCL to A5, VCC to +5V, GND to GND
+
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -14,11 +16,8 @@ void setup() {
   display.setCursor(65, 14);    //Sets the starting point on an XY coordinate
   display.print("TEST");
   display.display();
-
-
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
 }
