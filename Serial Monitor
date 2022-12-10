@@ -1,0 +1,10 @@
+//No wiring necessary
+
+void setup(){
+Serial.begin(9600);   //opens the serial port
+}
+
+void loop(){
+Serial.print(variableName);   //displays info
+Serial.println("displays what is written");   //displays info on new line
+}
