@@ -1,0 +1,28 @@
+/*
+  HC 08 BT module AT Commands:
+  http://www.hc01.com/downloads/HC-08A%20version%20english%20datasheet.pdf
+
+  Wire:
+  VCC to +5V
+  GND to GND
+  TXD to 10
+  RXD to 11
+*/
+
+#include <SoftwareSerial.h>
+
+SoftwareSerial BT(10, 11);   //TX-10, RX-11
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Enter AT commands:");
+  BT.begin(9600);
+}
+
+void loop() {
+  if (BT.available())
+    Serial.write(BT.read());
+
+  if (Serial.available())
+    BT.write(Serial.read());
+}
