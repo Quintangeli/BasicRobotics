@@ -1,23 +1,27 @@
-//Wire SDA to A4, SCL to A5, VCC to +5V, GND to GND
-
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#define OLED_RESET 4
-Adafruit_SSD1306 display(OLED_RESET);
+Adafruit_SSD1306 display(128, 64, &Wire, 4);   //width, height, &Wire, reset pin
 
 void setup() {
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);    //The typical Adress is 0x3C or 0x3D
-  display.clearDisplay();   //removes all data from buffer
-  display.display();    //loads your buffer to the screen
-  display.setTextSize(0);
-  display.setCursor(65, 14);    //Sets the starting point on an XY coordinate
-  display.print("TEST");
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);   //address is usually 0x3C or 0x3D
+  display.display();   //sends image to display
+  delay(500);
+  display.clearDisplay();
+  display.display();
+  display.setTextColor(WHITE);
+  display.setTextSize(1);
+  display.setCursor(65, 14);
+  display.print("TEST");   //loads the screen buffer with information
   display.display();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setCursor(65, 14);
+  display.print(millis());
+  display.display();
 }
